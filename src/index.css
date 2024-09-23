@@ -41,3 +41,39 @@ img{
 .color-line a:link{
 	color: white;
 }  
+
+
+
+/* -----------FOR SUBMIT BUTTONS---------- */
+.button-reg{
+	font-family: cursive;
+	background-color: orange;
+	border: black;
+	border-radius: 8px;
+	color: black;
+	padding: 8px 16px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 4px 2px;
+	transition-duration: 0.4s;
+	cursor: pointer;
+  }
+
+  .button-reg:hover {
+	background-color: rgb(131, 39, 25);
+	color: white;
+}
+.mob{
+	display: none;
+}
+@media(max-width: 560px){
+	.desk{
+		display: none;
+	}
+	.mob{
+		display: block;
+	}
+}
+/* -----------FOR SUBMIT BUTTONS---------- */

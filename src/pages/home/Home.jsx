@@ -1,16 +1,53 @@
-import React from 'react';
-import './home.css';
-import Slider from '../../components/home-slider/Slider';
+import React from "react";
+import "./home.css";
+import Slider from "../../components/home-slider/Slider";
+import cpct_img1 from '../../assets/cpct0.jpg';
+
 
 const Home = () => {
   return (
-    <div className='slider-bg'>
-        <Slider/>  
-        <center>
-			<h1 class="color-line">Welcome To SK-Cyber</h1>
-		</center>
-    </div>
-  )
-}
+    <>
+      <div className="slider-bg">
+        <Slider />
+      </div>
+      <center>
+        <h1 className="color-line">Welcome To SK-Cyber</h1>
+      </center>
+      {/* ----------CPCT SECTION START--------------- */}
+      <div className="container-fluide">
+        <div className="row cl-blue">
+          <div className="col-md-6">
+            <div className="cp-img-cont">
+            <img className="cpimg" src={cpct_img1} alt="" />
+            </div>
+          </div>
 
-export default Home
+          <div className="col-md-6">
+            <div className="cpct">
+              <h2 className="cpct-h">● CPCT</h2>
+              <p className="cpct-p">
+                Computer Proficiency & Certification Test (CPCT) has been
+                initiated in the State to assess Computer Proficiency and Typing
+                Skills of aspirants of Government jobs. Computer Based Online
+                examination assesses the competencies using Multi Choice
+                Questions (MCQ) based assessment and Typing test (English &
+                Hindi Typing).
+              </p>
+            </div>
+            <center>
+              <button className="button-reg">
+                <a >
+                  Get Admission..
+                </a>
+              </button>
+            </center>
+          </div>
+          <hr />
+        </div>
+      </div>
+      {/* ----------CPCT SECTION END--------------- */}
+    </>
+  );
+};
+
+export default Home;
