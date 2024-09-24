@@ -1,8 +1,7 @@
 import React from "react";
 import "./home.css";
 import Slider from "../../components/home-slider/Slider";
-import cpct_img1 from '../../assets/cpct0.jpg';
-
+import cpct_img1 from "../../assets/cpct0.jpg";
 
 const Home = () => {
   return (
@@ -18,7 +17,7 @@ const Home = () => {
         <div className="row cl-blue">
           <div className="col-md-6">
             <div className="cp-img-cont">
-            <img className="cpimg" src={cpct_img1} alt="" />
+              <img className="cpimg" src={cpct_img1} alt="" />
             </div>
           </div>
 
@@ -36,9 +35,7 @@ const Home = () => {
             </div>
             <center>
               <button className="button-reg">
-                <a >
-                  Get Admission..
-                </a>
+                <a>Get Admission..</a>
               </button>
             </center>
           </div>
@@ -46,6 +43,41 @@ const Home = () => {
         </div>
       </div>
       {/* ----------CPCT SECTION END--------------- */}
+
+      {/* ----------Basic Computer SECTION END--------------- */}
+      <div className="container-fluide">
+        <div className="row cl-blue">
+          <div className="col-md-6">
+            <div className="cpct">
+              <h2 className="cpct-h">● Basic Computer</h2>
+              <p className="cpct-p">
+                Computer classes teach you essential work skills. Different
+                computer programs like Microsoft Suite help with tasks like
+                writing, organizing documents, presentations, and spreadsheets.
+                These are all essential skills for jobs today and can be used in
+                across industries.
+              </p>
+            </div>
+            <center>
+              <button className="button-reg desk">
+                <a>Get Admission..</a>
+              </button>
+            </center>
+          </div>
+
+          <div className="col-md-6">
+            <div className="w3-content w3-section">
+              <img className="c-Slides" />
+            </div>
+            <center>
+              <button className="button-reg mob">
+                <a>Get Admission..</a>
+              </button>
+            </center>
+          </div>
+        </div>
+      </div>
+      {/* ----------Basic Computer SECTION END--------------- */}
     </>
   );
 };
