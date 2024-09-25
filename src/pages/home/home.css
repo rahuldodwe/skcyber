@@ -59,7 +59,7 @@
 }
 
 
-@media(max-width: 560px){
+@media(max-width: 800px){
 	.cl-blue{
 		height: 600px;
 		padding-top: 20px;
@@ -127,7 +127,7 @@
 
 
 
-@media(max-width: 560px){
+@media(max-width: 800px){
 	.basic-blue{
 		height: 600px;
 		padding-top: 20px;
@@ -162,3 +162,79 @@
 
 
 /*--------------Bsic-COMPUTER-CSS-end------------*/
+
+
+
+
+
+/*---------JOB-TABLE--STRT--------*/
+table{
+	width:100%;
+	text-align: center;
+}
+
+.table-dt {
+	border: 2px solid white;
+}
+
+td{
+	font-style: italic;
+	font-size: 18px;
+	height: 100px;
+	width: 25%;
+	font-family: initial;
+	border: 6px solid black;
+	background-color: rgb(255, 141, 0);
+}
+td:hover{
+	background-color: lightblue;
+}
+
+@media(max-width: 800px){
+	td{
+		height: 50px;
+		font-size: 12px;
+		
+		border: 3px white solid;
+		
+	}
+	table{
+		margin-top: 14px;
+	}
+}
+
+.row-1{
+	margin-left: 0px;
+	margin-right: 0px;
+	width: 100%;
+	
+}
+.col-sep{
+	width: 100%;
+	background-color: white;
+	
+
+}
+.tbl-h{
+	margin-top: 20px;
+	border-radius: 7px;
+	text-align: center;
+	background-color: rgb(255, 141, 0);
+}
+
+.b{
+	background-color: lightblue;
+	font-size: 15px;
+	list-style-type: none;
+}
+ ol>a {
+	color: black;
+
+	margin: 0;
+	padding: 0;
+}
+
+ol>a:hover{
+	color: black;
+	background-color: rgb(255, 141, 0);
+}

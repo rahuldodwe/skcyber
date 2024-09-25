@@ -7,7 +7,7 @@
 
 a{
   text-decoration: none;
-  color: #5a5a5a;
+  color: #000000;
 }
 
 img{
@@ -51,11 +51,11 @@ img{
 	border: black;
 	border-radius: 8px;
 	color: black;
-	padding: 8px 16px;
+	padding: 6px 12px;
 	text-align: center;
 	text-decoration: none;
 	display: inline-block;
-	font-size: 16px;
+	font-size: 14px;
 	margin: 4px 2px;
 	transition-duration: 0.4s;
 	cursor: pointer;
@@ -68,7 +68,7 @@ img{
 .mob{
 	display: none;
 }
-@media(max-width: 560px){
+@media(max-width: 800px){
 	.desk{
 		display: none;
 	}
