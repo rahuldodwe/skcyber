@@ -45,7 +45,7 @@ const Home = () => {
       {/* ----------CPCT SECTION END--------------- */}
 
       {/* ----------Basic Computer SECTION END--------------- */}
-      <div className="container-fluide">
+      {/* <div className="container-fluide">
         <div className="row cl-blue">
           <div className="col-md-6">
             <div className="cpct">
@@ -76,7 +76,7 @@ const Home = () => {
             </center>
           </div>
         </div>
-      </div>
+      </div> */}
       {/* ----------Basic Computer SECTION END--------------- */}
     </>
   );

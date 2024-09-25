@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './navbar.css';
 import header_logo from '../../assets/logo.png'
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
+
+	const [homePage, setHomePage] = useState(false);
+
   return (
     <div className="main-bar sticky-top">
 		<nav>
@@ -14,15 +18,16 @@ const Navbar = () => {
 			</label>
 
 			<div className="logo-header">
-				<img src={header_logo} />
+				<Link to="/" ><img src={header_logo} /></Link>
 			</div>
 
 			<ul>
-				<li className="active"><a href="#">Home</a></li>
-				<li className=""><a href="govt.php">Govt-Jobs</a></li>
-				<li className=""><a href="school.php">College Notification</a></li>
-				<li className=""><a href="service.php">Our Services</a></li>
-				<li className=""><a href="about.php">About Us</a></li>
+				{/* <li className="active"><Link to="/">Home</Link></li> */}
+				<li className=''><Link to="/">Home</Link></li>
+				<li className=""><Link to="/govt-jobs">Govt-Jobs</Link></li>
+				<li className=""><Link to="/college-notification">College Notification</Link></li>
+				<li className=""><Link to="/our-services">Our Services</Link></li>
+				<li className=""><Link to="/about-us">About Us</Link></li>
 			</ul>
 		</nav>
 	</div>
