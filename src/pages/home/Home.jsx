@@ -15,13 +15,13 @@ const Home = () => {
       {/* ----------CPCT SECTION START--------------- */}
       <div className="container-fluide">
         <div className="row cl-blue">
-          <div className="col-md-6">
+          <div className="col-md-5">
             <div className="cp-img-cont">
               <img className="cpimg" src={cpct_img1} alt="" />
             </div>
           </div>
 
-          <div className="col-md-6">
+          <div className="col-md-7">
             <div className="cpct">
               <h2 className="cpct-h">● CPCT</h2>
               <p className="cpct-p">
@@ -45,10 +45,10 @@ const Home = () => {
       {/* ----------CPCT SECTION END--------------- */}
 
       {/* ----------Basic Computer SECTION END--------------- */}
-      {/* <div className="container-fluide">
-        <div className="row cl-blue">
-          <div className="col-md-6">
-            <div className="cpct">
+      <div className="container-fluide">
+        <div className="row basic-blue">
+          <div className="col-md-7">
+            <div className="basic">
               <h2 className="cpct-h">● Basic Computer</h2>
               <p className="cpct-p">
                 Computer classes teach you essential work skills. Different
@@ -65,19 +65,21 @@ const Home = () => {
             </center>
           </div>
 
-          <div className="col-md-6">
-            <div className="w3-content w3-section">
-              <img className="c-Slides" />
+          <div className="col-md-5">
+          <div className="basic-img-cont">
+              <img className="cpimg" src={cpct_img1} alt="" />
             </div>
             <center>
-              <button className="button-reg mob">
+              <button className="button-reg mob btn">
                 <a>Get Admission..</a>
               </button>
             </center>
           </div>
         </div>
-      </div> */}
+      </div>
       {/* ----------Basic Computer SECTION END--------------- */}
+
+      
     </>
   );
 };

@@ -7,11 +7,12 @@
 /* ----------CPCT SECTION START--------------- */
 .cl-blue{
 	margin-top: 13px;
-	padding-top: 15px;
+	padding-top: 25px;
 	margin-left: 0px;
 	background-color: lightblue;
 	height: 350px;
-	width: 100%;
+	margin-bottom: 0px;
+	/* width: 100%; */
 }
 
 .mySlides {
@@ -19,21 +20,26 @@
 	height: 300px;
 	margin-bottom: 0px;
     width: 10%;
+	margin-bottom: 0px;
 }
 
 .cp-img-cont {
     width: 60%;
     margin-left: auto;
     margin-right: auto;
+	margin-bottom: 0px;
 }
 
 .cpimg {
     width: 100%;
     border-radius: 10px;
+	margin-bottom: 0px;
 }
 
 .cpct{
 	margin-top: 40px;
+	margin-right: 5%;
+	margin-left: 5%;
 }
 
 .cpct-h{
@@ -42,7 +48,7 @@
 }
 
 .cpct-p{
-	font-size: 15px;
+	font-size: 16px;
 	line-height: 30px;
 	font-family: serif;
 }
@@ -52,10 +58,18 @@
 	transition: all 0.5s;
 }
 
+
 @media(max-width: 560px){
 	.cl-blue{
-		height: 750px;
+		height: 600px;
 		padding-top: 20px;
+		margin-bottom: 0px;
+	}
+	
+	.cp-img-cont {
+		width: 80%;
+		margin-left: auto;
+		margin-right: auto;
 	}
 
 	.mySlides {
@@ -70,21 +84,81 @@
 	}
 
 	.cpct{
-		margin-top: 0px;
-		padding-top:0px
-		
+		margin-top: px;
 	}
+
 }
 /* ----------CPCT SECTION END--------------- */
 
 
 
-.c-Slides {
-	display:none;
-	height: 300px;
+
+/*--------------Bsic-COMPUTER-CSS-start------------*/
+
+.basic-blue{
+	margin-top: 5px;
+	padding-top: 25px;
+	margin-left: 0px;
+	background-color: lightblue;
+	height: 350px;
 	margin-bottom: 0px;
-	width: 100%;
-	border-radius: 7px;
+	/* width: 100%; */
+}
+
+
+.basic{
+	margin-top: 15px;
+	margin-right: 5%;
+	margin-left: 5%;
+}
+
+.basic-img-cont {
+	width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+	margin-bottom: 0px;
+}
+
+
+.basic-p:hover{
+	font-size: 17px;
+	transition: all 0.5s;
+}
+
+
+
+@media(max-width: 560px){
+	.basic-blue{
+		height: 600px;
+		padding-top: 20px;
+		margin-bottom: 0px;
+	}
+	
+	.basic-img-cont {
+		width: 80%;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: -60px;
+		margin-bottom: 30px;
+	}
+
+	.mySlides {
+		width: 100%;
+		height: 300px;
+		border-radius: 17px;
+	}
+	.c-Slides {
+		width: 100%;
+		height: 130px;
+		border-radius: 17px;
+	}
+
+	.cpct{
+		margin-top: px;
+	}
+
 	
 }
+
+
 /*--------------Bsic-COMPUTER-CSS-end------------*/
