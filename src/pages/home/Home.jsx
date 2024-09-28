@@ -2,6 +2,9 @@ import React from "react";
 import "./home.css";
 import Slider from "../../components/home-slider/Slider";
 import cpct_img1 from "../../assets/cpct0.jpg";
+import basic_img from "../../assets/c-basic0.jpg";
+
+
 
 const Home = () => {
   return (
@@ -67,7 +70,7 @@ const Home = () => {
 
           <div className="col-md-5">
           <div className="basic-img-cont">
-              <img className="cpimg" src={cpct_img1} alt="" />
+              <img className="cpimg" src={basic_img } alt="" />
             </div>
             <center>
               <button className="button-reg mob btn">
