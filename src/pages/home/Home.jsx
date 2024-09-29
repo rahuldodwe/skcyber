@@ -85,10 +85,10 @@ const Home = () => {
       	{/* <!----------------GOVT-JOB-START-----------------> */}
 	<div>
 		<center>
-			<h1 class="color-line">Government - Jobs</h1>
+			<h1 className="color-line">Government - Jobs</h1>
 		</center>
 	</div>
-	<div class="container">
+	<div className="container">
 		<table>
 			<tr>
 				<td className="table-dt"><a href="https://www.sarkariresult.com/upsc/upsc-otr-registration/" >UPSC OTR 2022 Registration</a></td>
@@ -112,11 +112,11 @@ const Home = () => {
 
 		</table>
 	</div>
-	<div class="container">
-		<div class="row row-01">
-			<div class="col-md-4 col-sep">
-				<h4 class="tbl-h">Result</h4>
-				<div class="b">
+	<div className="container">
+		<div className="row row-01">
+			<div className="col-md-4 col-sep">
+				<h4 className="tbl-h">Result</h4>
+				<div className="b">
 					<ol><a href="https://www.sarkariresult.com/delhi/delhi-hc-judicial-exam-2022/" target="">• Delhi High Court Judicial Services Mains Result 2022</a></ol>
 					<ol><a href="https://www.sarkariresult.com/rpsc/rsmssb-house-keeper-05-22/" target="">• RSMSSB House Keeper Result 2022</a></ol>
 					<ol><a href="https://www.sarkariresult.com/delhi/delhi-hc-jja-restorer-feb20/" target="">• Delhi High Court JJA / Restorer Final Result 2022</a></ol>
@@ -127,9 +127,9 @@ const Home = () => {
 				</div>
 			</div>
 
-			<div class="col-md-4 col-sep">
-				<h4 class="tbl-h">Admit Card</h4>
-				<div class="b">
+			<div className="col-md-4 col-sep">
+				<h4 className="tbl-h">Admit Card</h4>
+				<div className="b">
 					<ol><a href="https://www.sarkariresult.com/2022/jipmer-nursing-tech-jul22/" target="">• JIPMER Nursing Officer, Technician Admit Card 2022</a></ol>
 					<ol><a href="https://www.sarkariresult.com/nta/nta-cuet-pg-2022/" target="">• NTA CUET PG Admit Card / Exam City and Date 2022</a></ol>
 					<ol><a href="https://www.sarkariresult.com/ssc/ssc-mts-2020/" target="">• SSC MTS 2020 DV Test Admit Card</a></ol>
@@ -139,9 +139,9 @@ const Home = () => {
 					<ol><a href="#" target="">• </a></ol>
 				</div>
 			</div>
-			<div class="col-md-4 col-sep">
-				<h4 class="tbl-h">Latest Jobs</h4>
-				<div class="b">
+			<div className="col-md-4 col-sep">
+				<h4 className="tbl-h">Latest Jobs</h4>
+				<div className="b">
 					<ol><a href="https://www.sarkariresult.com/force/itbp-constable-animal-aug22/" target="">• ITBP Constable Animal Transport Online Form 2022</a></ol>
 					<ol><a href="https://www.sarkariresult.com/2022/nhm-up-mental-health-aug22/" target="">• NHM UP Mental Health Program Various Post Online Form 2022</a></ol>
 					<ol><a href="https://www.sarkariresult.com/force/coast-guard-yantrik-navik-01-2023/" target="">• Coast Guard Yantrik / Navik Online Form 2022</a></ol>
@@ -154,12 +154,141 @@ const Home = () => {
 		{/* <hr style="height: 2px; color: black; background-color: gray;"> */}
 		<center>
 			<form >
-				<button class="button-reg">See More..</button>
+				<button className="button-reg">See More..</button>
 			</form>
 		</center>
 	</div>
 	<br/>
 	{/* <!----------------GOVT-JOB-END-----------------> */}
+
+
+	{/* <!----------------College-Notifications-START----------------> */}
+  <div>
+  <div>
+		<center>
+			<h1 className="color-line">College Notifcations</h1>
+		</center>
+	</div>
+
+	<div className="container">
+		<div className="row row-01">
+			<div className="col-md-4 col-sep">
+				<h4 className="tbl-h">Result</h4>
+				<div className="b">
+					<ol><a href="https://www.sarkariresult.com/nta/nta-neet-ug-2022/" target="">• NTA NEET UG 2022 Result Date</a></ol>
+					<ol><a href="#" target="">• </a></ol>
+					<ol><a href="#" target="">• </a></ol>
+					<ol><a href="#" target="">• </a></ol>
+					<ol><a href="#" target="">• </a></ol>
+					<ol><a href="#" target="">• </a></ol>
+					<ol><a href="#" target="">• </a></ol>
+					<ol><a href="#" target="">• </a></ol>
+
+
+
+				</div>
+			</div>
+			<div className="col-md-4 col-sep">
+				<h4 className="tbl-h">Admit Card</h4>
+				<div className="b">
+					<ol><a href="#" target="">• UPSSSC PET 2022 Exam Date</a></ol>
+					<ol><a href="#" target="">• Railway RRC Group D Phase I Exam City / Date 2022</a></ol>
+					<ol><a href="#" target="">• SSC MTS 2021 Paper II Exam Date</a></ol>
+					<ol><a href="#" target="">• SSC Delhi Police Head Constable (Min) Exam Date 2022</a></ol>
+					<ol><a href="#" target="">• SSC CHSL 2021 Tier II Exam Date</a></ol>
+					<ol><a href="#" target="">• ESIC Steno / UDC Phase 3 Exam Date with Candidate List 2022</a></ol>
+				</div>
+			</div>
+			<div className="col-md-4 col-sep">
+				<h4 className="tbl-h">Admission</h4>
+				<div className="b">
+					<ol><a href="#" target="">• IIT JEE Advanced Online Form 2022</a></ol>
+					<ol><a href="#" target="">• UPDELED 2022 Online Counseling</a></ol>
+					<ol><a href="#" target="">• IIM CAT 2022 Online Form</a></ol>
+					<ol><a href="#" target="">• UP ITI Admissions Online Form Extended</a></ol>
+					<ol><a href="#" target="">• NTA PM Young Achievers Scholarship Yasasvi Online Form</a></ol>
+					<ol><a href="#" target="">• NTA AIAPGET 2022 Online Form</a></ol>
+					<ol><a href="#" target="">• IIT GATE 2023 Online Form</a></ol>
+				</div>
+			</div>
+		</div>
+		{/* <hr style="height: 2px; color: black; background-color: gray;"/> */}
+    <hr />
+		<center>
+			<form action="school.php">
+				<button className="button-reg">See More..</button>
+			</form>
+		</center>
+	</div>
+  </div>
+  	{/* <!----------------College-Notifications-END----------------> */}
+
+
+
+
+
+  	{/* <!----------------OOur Services-START----------------> */}
+    <div>
+    <div>
+		<center>
+			<h1 className="color-line">Our Services</h1>
+		</center>
+	</div>
+
+	{/* <div className="container-fluid" style="background-color: lightblue;"> */}
+     <div className="container-fluid">
+		<div className="row">
+			{/* <!------row start-------> */}
+
+
+
+			<div className="col-md-3">
+				<center>
+					<img src="img/aadhar.png" className="svc grow-shadow"/>
+					<h5 className="tex">Aadhar Card</h5>
+				</center>
+			</div>
+
+
+			<div className="col-md-3">
+				<center>
+					<img src="img/Hitgrahi-Panjiyan.jpg" className="svc grow-shadow"/>
+					<h5 className="tex">Hitgrahi Panjiyan</h5>
+				</center>
+			</div>
+
+
+			<div className="col-md-3">
+				<center>
+					<img src="img/money.png" className="svc grow-shadow"/>
+					<h5 className="tex">Money Transfer</h5>
+				</center>
+			</div>
+
+			<div className="col-md-3">
+				<center>
+					<img src="img/ticket1.png" className="svc grow-shadow"/>
+					<h5 className="tex">Ticket</h5>
+				</center>
+			</div>
+
+		</div>
+		<br/>
+		{/* <!-----------------row end -------> */}
+	</div>
+	{/* <hr style="height: .4px; color: gray; background-color: gray;"> */}
+  <hr />
+	<center>
+		<form action="service.php">
+			<button className="button-reg">See More..</button>
+		</form>
+	</center>
+    </div>
+    	{/* <!----------------OOur Services-START----------------> */}
+
+
+
+
     </>
   );
 };
