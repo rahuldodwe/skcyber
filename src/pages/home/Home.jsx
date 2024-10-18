@@ -19,7 +19,7 @@ const Home = () => {
         <h1 className="color-line">Welcome To SK-Cyber</h1>
       </center>
       {/* ----------CPCT SECTION START--------------- */}
-      <div className="container-fluide">
+      <div className="container-fluid">
         <div className="row cl-blue">
           <div className="col-md-5">
             <div className="cp-img-cont">
@@ -51,7 +51,7 @@ const Home = () => {
       {/* ----------CPCT SECTION END--------------- */}
 
       {/* ----------Basic Computer SECTION END--------------- */}
-      <div className="container-fluide">
+      <div className="container-fluid">
         <div className="row basic-blue">
           <div className="col-md-7">
             <div className="basic">
