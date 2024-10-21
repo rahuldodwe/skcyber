@@ -1,7 +1,41 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { FaArrowRightLong } from "react-icons/fa6";
 
 const GovtJobs = () => {
+  const [latestJobList, setLatestJobList] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [count, setCount] = useState(0);
+
+
+  // FETCHING LATEST JOB LIST
+  async function fetchJobList() {
+    const url = `https://sarkari-result.p.rapidapi.com/scrape/latestjob?limit=10&skip=0`;
+    const options = {
+      method: "GET",
+      headers: {
+        "x-rapidapi-key": "ab6fffcdffmshe20aa9437e25573p12c572jsn16ca5b66f527",
+        "x-rapidapi-host": "sarkari-result.p.rapidapi.com",
+      },
+    };
+
+    try {
+      const response = await fetch(url, options);
+      const result = await response.json();
+      console.log(result);
+
+      if (result && result?.result) {
+        setLatestJobList(result?.result);
+        setLoading(false);
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  useEffect(() => {
+    fetchJobList();
+  }, []);
+
   return (
     <>
       {/* <!----------------GOVT-JOB-START-----------------> */}
@@ -165,48 +199,22 @@ const GovtJobs = () => {
           <div className="col-md-4 col-sep">
             <h4 className="tbl-h">Latest Jobs</h4>
             <div className="b">
-              <div className="jobs">
-                <FaArrowRightLong className="arrow" />
-                <a className="job-text">
-                  Delhi High Court Judicial Services Mains Result 2022
-                </a>
-              </div>
-              <div className="jobs">
-                <FaArrowRightLong className="arrow" />
-                <a className="job-text">
-                  Delhi High Court Judicial Services Mains Result 2024
-                </a>
-              </div>
-              <div className="jobs">
-                <FaArrowRightLong className="arrow" />
-                <a className="job-text">
-                  RPSC AE Civil, Revenue & Executive Officer Online Form 2024
-                </a>
-              </div>
-              <div className="jobs">
-                <FaArrowRightLong className="arrow" />
-                <a className="job-text">
-                  Delhi High Court Judicial Services Mains Result 2024
-                </a>
-              </div>
-              <div className="jobs">
-                <FaArrowRightLong className="arrow" />
-                <a className="job-text">
-                  Delhi High Court Judicial Services Mains Result 2024
-                </a>
-              </div>
-              <div className="jobs">
-                <FaArrowRightLong className="arrow" />
-                <a className="job-text">
-                  Delhi High Court Judicial Services Mains Result 2024
-                </a>
-              </div>
-              <div className="jobs">
-                <FaArrowRightLong className="arrow" />
-                <a className="job-text">
-                  Delhi High Court Judicial Services Mains Result 2024
-                </a>
-              </div>
+              {latestJobList && latestJobList.length > 0 ? (
+                latestJobList.map((singleJob,index) => (
+                  <div key={index} className="jobs">
+                    <FaArrowRightLong className="arrow" />
+                    <a
+                      target="blank"
+                      href={singleJob?.href}
+                      className="job-text"
+                    >
+                      {singleJob?.text}
+                    </a>
+                  </div>
+                ))
+              ) : (
+                <h1>Loading...</h1>
+              )}
             </div>
           </div>
         </div>
