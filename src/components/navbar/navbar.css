@@ -91,11 +91,12 @@ nav li a{
 	
 }
 
-nav li:hover a{
+nav li a:hover {
 	font-size: 19px;
 	color: rgb(75, 0, 10);
 	background-color: lightblue;
     border: 1px solid rgb(108, 52, 0);
+	transition: all 0.5s;
 	
 }
 
