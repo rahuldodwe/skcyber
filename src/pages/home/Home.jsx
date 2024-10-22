@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import "./home.css";
 import Slider from "../../components/home-slider/Slider";
 import cpct_img1 from "../../assets/cpct0.jpg";
@@ -9,9 +9,20 @@ import money_img from "../../assets/money.png";
 import ticket_img from "../../assets/ticket1.png";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { DataContext } from "../../context/Context";
+import AdmissionForm from "../../components/admission-form/AdmissionForm";
 
 const Home = () => {
   const { resultList, latestJobList, admitCardList } = useContext(DataContext);
+  const [openForm, setOpenForm] = useState(false);
+
+  function handleOpenForm() {
+    setOpenForm(!openForm);
+    
+  }
+
+  function onClose() {
+    setOpenForm(false);
+  }
 
   // Slice 20 Items
   const admitCardSlice = admitCardList.slice(0, 15);
@@ -52,15 +63,18 @@ const Home = () => {
               </p>
             </div>
             <center>
-              <button className="button-reg">
-                <a>Get Admission..</a>
+              <button className="button-reg" onClick={handleOpenForm}>
+              <a>Get Admission</a>
               </button>
+              
             </center>
           </div>
           <hr />
         </div>
       </div>
       {/* ----------CPCT SECTION END--------------- */}
+
+      {openForm && <AdmissionForm onClose={onClose} />}
 
       {/* ----------Basic Computer SECTION END--------------- */}
       <div className="container-fluid">
@@ -78,7 +92,7 @@ const Home = () => {
             </div>
             <center>
               <button className="button-reg desk">
-                <a>Get Admission..</a>
+                <a>Get Admission</a>
               </button>
             </center>
           </div>
