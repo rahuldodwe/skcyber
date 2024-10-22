@@ -1,40 +1,19 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { FaArrowRightLong } from "react-icons/fa6";
+import { DataContext } from "../../context/Context";
 
 const GovtJobs = () => {
-  const [latestJobList, setLatestJobList] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [count, setCount] = useState(0);
+  const { resultList, latestJobList, admitCardList } = useContext(DataContext);
 
+  // Slice 20 Items
+  const admitCardSlice = admitCardList.slice(0, 20);
+  // console.log(admitCard50);
 
-  // FETCHING LATEST JOB LIST
-  async function fetchJobList() {
-    const url = `https://sarkari-result.p.rapidapi.com/scrape/latestjob?limit=10&skip=0`;
-    const options = {
-      method: "GET",
-      headers: {
-        "x-rapidapi-key": "ab6fffcdffmshe20aa9437e25573p12c572jsn16ca5b66f527",
-        "x-rapidapi-host": "sarkari-result.p.rapidapi.com",
-      },
-    };
+  const resultSlice = resultList.slice(0, 20);
+  // console.log(admitCard50);
 
-    try {
-      const response = await fetch(url, options);
-      const result = await response.json();
-      console.log(result);
-
-      if (result && result?.result) {
-        setLatestJobList(result?.result);
-        setLoading(false);
-      }
-    } catch (error) {
-      console.error(error);
-    }
-  }
-
-  useEffect(() => {
-    fetchJobList();
-  }, []);
+  const jobSlice = latestJobList.slice(0, 20);
+  // console.log(jobSlice);
 
   return (
     <>
@@ -104,103 +83,51 @@ const GovtJobs = () => {
           <div className="col-md-4">
             <h4 className="tbl-h">Result</h4>
             <div className="b">
-              <div className="jobs">
-                <FaArrowRightLong className="arrow" />
-                <a className="job-text">
-                  Delhi High Court Judicial Services Mains Result 2022
-                </a>
-              </div>
-              <div className="jobs">
-                <FaArrowRightLong className="arrow" />
-                <a className="job-text">
-                  Delhi High Court Judicial Services Mains Result 2024
-                </a>
-              </div>
-              <div className="jobs">
-                <FaArrowRightLong className="arrow" />
-                <a className="job-text">
-                  RPSC AE Civil, Revenue & Executive Officer Online Form 2024
-                </a>
-              </div>
-              <div className="jobs">
-                <FaArrowRightLong className="arrow" />
-                <a className="job-text">
-                  Delhi High Court Judicial Services Mains Result 2024
-                </a>
-              </div>
-              <div className="jobs">
-                <FaArrowRightLong className="arrow" />
-                <a className="job-text">
-                  Delhi High Court Judicial Services Mains Result 2024
-                </a>
-              </div>
-              <div className="jobs">
-                <FaArrowRightLong className="arrow" />
-                <a className="job-text">
-                  Delhi High Court Judicial Services Mains Result 2024
-                </a>
-              </div>
-              <div className="jobs">
-                <FaArrowRightLong className="arrow" />
-                <a className="job-text">
-                  Delhi High Court Judicial Services Mains Result 2024
-                </a>
-              </div>
+              {resultSlice && resultSlice.length > 0 ? (
+                resultSlice.map((singleResult, index) => (
+                  <div key={index} className="jobs">
+                    <FaArrowRightLong className="arrow" />
+                    <a
+                      target="blank"
+                      href={singleResult?.href}
+                      className="job-text"
+                    >
+                      {singleResult?.text}
+                    </a>
+                  </div>
+                ))
+              ) : (
+                <h1 className="text-center pt-3">Data Loading...</h1>
+              )}
             </div>
           </div>
 
           <div className="col-md-4 col-sep">
             <h4 className="tbl-h">Admit Card</h4>
             <div className="b">
-              <div className="jobs">
-                <FaArrowRightLong className="arrow" />
-                <a className="job-text">
-                  Delhi High Court Judicial Services Mains Result 2022
-                </a>
-              </div>
-              <div className="jobs">
-                <FaArrowRightLong className="arrow" />
-                <a className="job-text">
-                  Delhi High Court Judicial Services Mains Result 2024
-                </a>
-              </div>
-              <div className="jobs">
-                <FaArrowRightLong className="arrow" />
-                <a className="job-text">
-                  RPSC AE Civil, Revenue & Executive Officer Online Form 2024
-                </a>
-              </div>
-              <div className="jobs">
-                <FaArrowRightLong className="arrow" />
-                <a className="job-text">
-                  Delhi High Court Judicial Services Mains Result 2024
-                </a>
-              </div>
-              <div className="jobs">
-                <FaArrowRightLong className="arrow" />
-                <a className="job-text">
-                  Delhi High Court Judicial Services Mains Result 2024
-                </a>
-              </div>
-              <div className="jobs">
-                <FaArrowRightLong className="arrow" />
-                <a className="job-text">
-                  Delhi High Court Judicial Services Mains Result 2024
-                </a>
-              </div>
-              <div className="jobs">
-                <FaArrowRightLong className="arrow" />
-                <a className="job-text">
-                  Delhi High Court Judicial Services Mains Result 2024
-                </a>
-              </div>
+              {admitCardSlice && admitCardSlice.length > 0 ? (
+                admitCardSlice.map((singleCard, index) => (
+                  <div key={index} className="jobs">
+                    <FaArrowRightLong className="arrow" />
+                    <a
+                      target="blank"
+                      href={singleCard?.href}
+                      className="job-text"
+                    >
+                      {singleCard?.text}
+                    </a>
+                  </div>
+                ))
+              ) : (
+                <h1 className="text-center pt-3">Data Loading...</h1>
+              )}
             </div>
           </div>
           <div className="col-md-4 col-sep">
             <h4 className="tbl-h">Latest Jobs</h4>
             <div className="b">
-              {latestJobList && latestJobList.length > 0 ? (
-                latestJobList.map((singleJob,index) => (
+              {jobSlice && jobSlice.length > 0 ? (
+                jobSlice.map((singleJob, index) => (
                   <div key={index} className="jobs">
                     <FaArrowRightLong className="arrow" />
                     <a
@@ -213,7 +140,7 @@ const GovtJobs = () => {
                   </div>
                 ))
               ) : (
-                <h1>Loading...</h1>
+                <h1 className="text-center pt-3">Data Loading...</h1>
               )}
             </div>
           </div>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./home.css";
 import Slider from "../../components/home-slider/Slider";
 import cpct_img1 from "../../assets/cpct0.jpg";
@@ -8,8 +8,20 @@ import hitgrahi_img from "../../assets/Hitgrahi-Panjiyan.jpg";
 import money_img from "../../assets/money.png";
 import ticket_img from "../../assets/ticket1.png";
 import { FaArrowRightLong } from "react-icons/fa6";
+import { DataContext } from "../../context/Context";
 
 const Home = () => {
+  const { resultList, latestJobList, admitCardList } = useContext(DataContext);
+
+  // Slice 20 Items
+  const admitCardSlice = admitCardList.slice(0, 15);
+  // console.log(admitCard50);
+
+  const resultSlice = resultList.slice(0, 15);
+  // console.log(admitCard50);
+
+  const jobSlice = latestJobList.slice(0, 15);
+  // console.log(jobSlice);
   return (
     <>
       <div className="slider-bg">
@@ -151,143 +163,65 @@ const Home = () => {
           <div className="col-md-4">
             <h4 className="tbl-h">Result</h4>
             <div className="b">
-              <div className="jobs">
-                <FaArrowRightLong className="arrow" />
-                <a className="job-text">
-                  Delhi High Court Judicial Services Mains Result 2022
-                </a>
-              </div>
-              <div className="jobs">
-                <FaArrowRightLong className="arrow" />
-                <a className="job-text">
-                  Delhi High Court Judicial Services Mains Result 2024
-                </a>
-              </div>
-              <div className="jobs">
-                <FaArrowRightLong className="arrow" />
-                <a className="job-text">
-                RPSC AE Civil, Revenue & Executive Officer Online Form 2024
-                </a>
-              </div>
-              <div className="jobs">
-                <FaArrowRightLong className="arrow" />
-                <a className="job-text">
-                  Delhi High Court Judicial Services Mains Result 2024
-                </a>
-              </div>
-              <div className="jobs">
-                <FaArrowRightLong className="arrow" />
-                <a className="job-text">
-                  Delhi High Court Judicial Services Mains Result 2024
-                </a>
-              </div>
-              <div className="jobs">
-                <FaArrowRightLong className="arrow" />
-                <a className="job-text">
-                  Delhi High Court Judicial Services Mains Result 2024
-                </a>
-              </div>
-              <div className="jobs">
-                <FaArrowRightLong className="arrow" />
-                <a className="job-text">
-                  Delhi High Court Judicial Services Mains Result 2024
-                </a>
-              </div>
+              {resultSlice && resultSlice.length > 0 ? (
+                resultSlice.map((singleResult, index) => (
+                  <div key={index} className="jobs">
+                    <FaArrowRightLong className="arrow" />
+                    <a
+                      target="blank"
+                      href={singleResult?.href}
+                      className="job-text"
+                    >
+                      {singleResult?.text}
+                    </a>
+                  </div>
+                ))
+              ) : (
+                <h1 className="text-center pt-3">Data Loading...</h1>
+              )}
             </div>
           </div>
 
           <div className="col-md-4 col-sep">
             <h4 className="tbl-h">Admit Card</h4>
             <div className="b">
-              <div className="jobs">
-                <FaArrowRightLong className="arrow" />
-                <a className="job-text">
-                  Delhi High Court Judicial Services Mains Result 2022
-                </a>
-              </div>
-              <div className="jobs">
-                <FaArrowRightLong className="arrow" />
-                <a className="job-text">
-                  Delhi High Court Judicial Services Mains Result 2024
-                </a>
-              </div>
-              <div className="jobs">
-                <FaArrowRightLong className="arrow" />
-                <a className="job-text">
-                RPSC AE Civil, Revenue & Executive Officer Online Form 2024
-                </a>
-              </div>
-              <div className="jobs">
-                <FaArrowRightLong className="arrow" />
-                <a className="job-text">
-                  Delhi High Court Judicial Services Mains Result 2024
-                </a>
-              </div>
-              <div className="jobs">
-                <FaArrowRightLong className="arrow" />
-                <a className="job-text">
-                  Delhi High Court Judicial Services Mains Result 2024
-                </a>
-              </div>
-              <div className="jobs">
-                <FaArrowRightLong className="arrow" />
-                <a className="job-text">
-                  Delhi High Court Judicial Services Mains Result 2024
-                </a>
-              </div>
-              <div className="jobs">
-                <FaArrowRightLong className="arrow" />
-                <a className="job-text">
-                  Delhi High Court Judicial Services Mains Result 2024
-                </a>
-              </div>
+              {admitCardSlice && admitCardSlice.length > 0 ? (
+                admitCardSlice.map((singleCard, index) => (
+                  <div key={index} className="jobs">
+                    <FaArrowRightLong className="arrow" />
+                    <a
+                      target="blank"
+                      href={singleCard?.href}
+                      className="job-text"
+                    >
+                      {singleCard?.text}
+                    </a>
+                  </div>
+                ))
+              ) : (
+                <h1 className="text-center pt-3">Data Loading...</h1>
+              )}
             </div>
           </div>
           <div className="col-md-4 col-sep">
             <h4 className="tbl-h">Latest Jobs</h4>
             <div className="b">
-              <div className="jobs">
-                <FaArrowRightLong className="arrow" />
-                <a className="job-text">
-                  Delhi High Court Judicial Services Mains Result 2022
-                </a>
-              </div>
-              <div className="jobs">
-                <FaArrowRightLong className="arrow" />
-                <a className="job-text">
-                  Delhi High Court Judicial Services Mains Result 2024
-                </a>
-              </div>
-              <div className="jobs">
-                <FaArrowRightLong className="arrow" />
-                <a className="job-text">
-                RPSC AE Civil, Revenue & Executive Officer Online Form 2024
-                </a>
-              </div>
-              <div className="jobs">
-                <FaArrowRightLong className="arrow" />
-                <a className="job-text">
-                  Delhi High Court Judicial Services Mains Result 2024
-                </a>
-              </div>
-              <div className="jobs">
-                <FaArrowRightLong className="arrow" />
-                <a className="job-text">
-                  Delhi High Court Judicial Services Mains Result 2024
-                </a>
-              </div>
-              <div className="jobs">
-                <FaArrowRightLong className="arrow" />
-                <a className="job-text">
-                  Delhi High Court Judicial Services Mains Result 2024
-                </a>
-              </div>
-              <div className="jobs">
-                <FaArrowRightLong className="arrow" />
-                <a className="job-text">
-                  Delhi High Court Judicial Services Mains Result 2024
-                </a>
-              </div>
+              {jobSlice && jobSlice.length > 0 ? (
+                jobSlice.map((singleJob, index) => (
+                  <div key={index} className="jobs">
+                    <FaArrowRightLong className="arrow" />
+                    <a
+                      target="blank"
+                      href={singleJob?.href}
+                      className="job-text"
+                    >
+                      {singleJob?.text}
+                    </a>
+                  </div>
+                ))
+              ) : (
+                <h1 className="text-center pt-3">Data Loading...</h1>
+              )}
             </div>
           </div>
         </div>
@@ -310,161 +244,161 @@ const Home = () => {
         </div>
 
         <div className="container">
-        <div className="row ">
-          <div className="col-md-4">
-            <h4 className="tbl-h">Result</h4>
-            <div className="b">
-              <div className="jobs">
-                <FaArrowRightLong className="arrow" />
-                <a className="job-text">
-                  Delhi High Court Judicial Services Mains Result 2022
-                </a>
-              </div>
-              <div className="jobs">
-                <FaArrowRightLong className="arrow" />
-                <a className="job-text">
-                  Delhi High Court Judicial Services Mains Result 2024
-                </a>
-              </div>
-              <div className="jobs">
-                <FaArrowRightLong className="arrow" />
-                <a className="job-text">
-                RPSC AE Civil, Revenue & Executive Officer Online Form 2024
-                </a>
-              </div>
-              <div className="jobs">
-                <FaArrowRightLong className="arrow" />
-                <a className="job-text">
-                  Delhi High Court Judicial Services Mains Result 2024
-                </a>
-              </div>
-              <div className="jobs">
-                <FaArrowRightLong className="arrow" />
-                <a className="job-text">
-                  Delhi High Court Judicial Services Mains Result 2024
-                </a>
-              </div>
-              <div className="jobs">
-                <FaArrowRightLong className="arrow" />
-                <a className="job-text">
-                  Delhi High Court Judicial Services Mains Result 2024
-                </a>
-              </div>
-              <div className="jobs">
-                <FaArrowRightLong className="arrow" />
-                <a className="job-text">
-                  Delhi High Court Judicial Services Mains Result 2024
-                </a>
+          <div className="row ">
+            <div className="col-md-4">
+              <h4 className="tbl-h">Result</h4>
+              <div className="b">
+                <div className="jobs">
+                  <FaArrowRightLong className="arrow" />
+                  <a className="job-text">
+                    Delhi High Court Judicial Services Mains Result 2022
+                  </a>
+                </div>
+                <div className="jobs">
+                  <FaArrowRightLong className="arrow" />
+                  <a className="job-text">
+                    Delhi High Court Judicial Services Mains Result 2024
+                  </a>
+                </div>
+                <div className="jobs">
+                  <FaArrowRightLong className="arrow" />
+                  <a className="job-text">
+                    RPSC AE Civil, Revenue & Executive Officer Online Form 2024
+                  </a>
+                </div>
+                <div className="jobs">
+                  <FaArrowRightLong className="arrow" />
+                  <a className="job-text">
+                    Delhi High Court Judicial Services Mains Result 2024
+                  </a>
+                </div>
+                <div className="jobs">
+                  <FaArrowRightLong className="arrow" />
+                  <a className="job-text">
+                    Delhi High Court Judicial Services Mains Result 2024
+                  </a>
+                </div>
+                <div className="jobs">
+                  <FaArrowRightLong className="arrow" />
+                  <a className="job-text">
+                    Delhi High Court Judicial Services Mains Result 2024
+                  </a>
+                </div>
+                <div className="jobs">
+                  <FaArrowRightLong className="arrow" />
+                  <a className="job-text">
+                    Delhi High Court Judicial Services Mains Result 2024
+                  </a>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div className="col-md-4 col-sep">
-            <h4 className="tbl-h">Admit Card</h4>
-            <div className="b">
-              <div className="jobs">
-                <FaArrowRightLong className="arrow" />
-                <a className="job-text">
-                  Delhi High Court Judicial Services Mains Result 2022
-                </a>
+            <div className="col-md-4 col-sep">
+              <h4 className="tbl-h">Admit Card</h4>
+              <div className="b">
+                <div className="jobs">
+                  <FaArrowRightLong className="arrow" />
+                  <a className="job-text">
+                    Delhi High Court Judicial Services Mains Result 2022
+                  </a>
+                </div>
+                <div className="jobs">
+                  <FaArrowRightLong className="arrow" />
+                  <a className="job-text">
+                    Delhi High Court Judicial Services Mains Result 2024
+                  </a>
+                </div>
+                <div className="jobs">
+                  <FaArrowRightLong className="arrow" />
+                  <a className="job-text">
+                    RPSC AE Civil, Revenue & Executive Officer Online Form 2024
+                  </a>
+                </div>
+                <div className="jobs">
+                  <FaArrowRightLong className="arrow" />
+                  <a className="job-text">
+                    Delhi High Court Judicial Services Mains Result 2024
+                  </a>
+                </div>
+                <div className="jobs">
+                  <FaArrowRightLong className="arrow" />
+                  <a className="job-text">
+                    Delhi High Court Judicial Services Mains Result 2024
+                  </a>
+                </div>
+                <div className="jobs">
+                  <FaArrowRightLong className="arrow" />
+                  <a className="job-text">
+                    Delhi High Court Judicial Services Mains Result 2024
+                  </a>
+                </div>
+                <div className="jobs">
+                  <FaArrowRightLong className="arrow" />
+                  <a className="job-text">
+                    Delhi High Court Judicial Services Mains Result 2024
+                  </a>
+                </div>
               </div>
-              <div className="jobs">
-                <FaArrowRightLong className="arrow" />
-                <a className="job-text">
-                  Delhi High Court Judicial Services Mains Result 2024
-                </a>
-              </div>
-              <div className="jobs">
-                <FaArrowRightLong className="arrow" />
-                <a className="job-text">
-                RPSC AE Civil, Revenue & Executive Officer Online Form 2024
-                </a>
-              </div>
-              <div className="jobs">
-                <FaArrowRightLong className="arrow" />
-                <a className="job-text">
-                  Delhi High Court Judicial Services Mains Result 2024
-                </a>
-              </div>
-              <div className="jobs">
-                <FaArrowRightLong className="arrow" />
-                <a className="job-text">
-                  Delhi High Court Judicial Services Mains Result 2024
-                </a>
-              </div>
-              <div className="jobs">
-                <FaArrowRightLong className="arrow" />
-                <a className="job-text">
-                  Delhi High Court Judicial Services Mains Result 2024
-                </a>
-              </div>
-              <div className="jobs">
-                <FaArrowRightLong className="arrow" />
-                <a className="job-text">
-                  Delhi High Court Judicial Services Mains Result 2024
-                </a>
+            </div>
+            <div className="col-md-4 col-sep">
+              <h4 className="tbl-h">Latest Jobs</h4>
+              <div className="b">
+                <div className="jobs">
+                  <FaArrowRightLong className="arrow" />
+                  <a className="job-text">
+                    Delhi High Court Judicial Services Mains Result 2022
+                  </a>
+                </div>
+                <div className="jobs">
+                  <FaArrowRightLong className="arrow" />
+                  <a className="job-text">
+                    Delhi High Court Judicial Services Mains Result 2024
+                  </a>
+                </div>
+                <div className="jobs">
+                  <FaArrowRightLong className="arrow" />
+                  <a className="job-text">
+                    RPSC AE Civil, Revenue & Executive Officer Online Form 2024
+                  </a>
+                </div>
+                <div className="jobs">
+                  <FaArrowRightLong className="arrow" />
+                  <a className="job-text">
+                    Delhi High Court Judicial Services Mains Result 2024
+                  </a>
+                </div>
+                <div className="jobs">
+                  <FaArrowRightLong className="arrow" />
+                  <a className="job-text">
+                    Delhi High Court Judicial Services Mains Result 2024
+                  </a>
+                </div>
+                <div className="jobs">
+                  <FaArrowRightLong className="arrow" />
+                  <a className="job-text">
+                    Delhi High Court Judicial Services Mains Result 2024
+                  </a>
+                </div>
+                <div className="jobs">
+                  <FaArrowRightLong className="arrow" />
+                  <a className="job-text">
+                    Delhi High Court Judicial Services Mains Result 2024
+                  </a>
+                </div>
               </div>
             </div>
           </div>
-          <div className="col-md-4 col-sep">
-            <h4 className="tbl-h">Latest Jobs</h4>
-            <div className="b">
-              <div className="jobs">
-                <FaArrowRightLong className="arrow" />
-                <a className="job-text">
-                  Delhi High Court Judicial Services Mains Result 2022
-                </a>
-              </div>
-              <div className="jobs">
-                <FaArrowRightLong className="arrow" />
-                <a className="job-text">
-                  Delhi High Court Judicial Services Mains Result 2024
-                </a>
-              </div>
-              <div className="jobs">
-                <FaArrowRightLong className="arrow" />
-                <a className="job-text">
-                RPSC AE Civil, Revenue & Executive Officer Online Form 2024
-                </a>
-              </div>
-              <div className="jobs">
-                <FaArrowRightLong className="arrow" />
-                <a className="job-text">
-                  Delhi High Court Judicial Services Mains Result 2024
-                </a>
-              </div>
-              <div className="jobs">
-                <FaArrowRightLong className="arrow" />
-                <a className="job-text">
-                  Delhi High Court Judicial Services Mains Result 2024
-                </a>
-              </div>
-              <div className="jobs">
-                <FaArrowRightLong className="arrow" />
-                <a className="job-text">
-                  Delhi High Court Judicial Services Mains Result 2024
-                </a>
-              </div>
-              <div className="jobs">
-                <FaArrowRightLong className="arrow" />
-                <a className="job-text">
-                  Delhi High Court Judicial Services Mains Result 2024
-                </a>
-              </div>
-            </div>
-          </div>
+          {/* <hr style="height: 2px; color: black; background-color: gray;"> */}
+          <center>
+            <form>
+              <button className="button-reg">See More..</button>
+            </form>
+          </center>
         </div>
-        {/* <hr style="height: 2px; color: black; background-color: gray;"> */}
-        <center>
-          <form>
-            <button className="button-reg">See More..</button>
-          </form>
-        </center>
-      </div>
       </div>
       {/* <!----------------College-Notifications-END----------------> */}
 
-      {/* <!----------------OOur Services-START----------------> */}
+      {/* <!----------------Our Services-START----------------> */}
       <div>
         <div>
           <center>
