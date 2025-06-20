@@ -1,6 +1,7 @@
 /*-------navbar css-----------*/
 .main-bar{
-	background-color: rgb(255, 141, 0) !important;
+	background-color: #22272b !important;
+	/* background-color: rgb(255, 141, 0) !important; */
 	display: flow-root;
 	padding: 0 10%;
 	background-attachment: fixed;
@@ -56,48 +57,65 @@
     margin-top: 7px;
 }
 
-ul{
-	float: right;
+ul {
+  float: right;
 }
 
-nav ul li{
-	display: inline-block;
-	line-height: 45px;
-	border-radius: 0px;
-    margin-left: 3px;
-    margin-right: 3PX;
-	margin-top: 9px;
-}
-nav li.active a{
-	color: #020101;
-	background-color: lightblue;
-	border-radius: 10px;
-    border: 1px solid rgb(108, 52, 0);
-	
+
+nav ul li {
+  display: inline-block;
+  line-height: 45px;
+  margin: 9px 3px 0;
+  border-radius: 0;
 }
 
-nav li a{
-	font-style: inherit;
-	font-family: serif;
-	padding: 6px 12px;
-	border: 0;
-	font-size: 19px;
-	font-weight: 25px;
-	color: white;
-	opacity: 1;
-	text-decoration: none;
-	transition: all 0.5s;
-    border-radius: 10px;
-	
+/* Shared styles for both active and hover */
+nav li a {
+  position: relative;
+  font-family: serif;
+  margin: 6px 20px;
+  padding: 2px 8px;
+  font-size: 19px;
+  color: white;
+  text-decoration: none;
+  transition: all 0.1s ease;
+  overflow: hidden;
+  z-index: 1;
 }
 
-nav li a:hover {
-	font-size: 19px;
-	color: rgb(75, 0, 10);
-	background-color: lightblue;
-    border: 1px solid rgb(108, 52, 0);
-	transition: all 0.5s;
-	
+/* Apply skew + background on both hover and active */
+nav li a:hover,
+nav li.active a {
+  color: rgb(75, 0, 10);
+  background-color: lightblue;
+}
+
+/* Skewed left side */
+nav li a:hover::before,
+nav li.active a::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -10px;
+  width: 20px;
+  height: 100%;
+  background-color: lightblue;
+  transform: skewX(30deg);
+  z-index: -1;
+}
+
+/* Skewed right side */
+nav li a:hover::after,
+nav li.active a::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: -10px;
+  width: 20px;
+  height: 100%;
+  background-color: lightblue;
+  transform: skewX(30deg);
+  z-index: -1;
 }
 
 @media(max-width: 1250px){
@@ -105,7 +123,7 @@ nav li a:hover {
 		padding: 0 2%;
 	}
 	nav li a{
-		padding: 15px 20px;
+		padding: 2px 4px;
 	}
 }
 

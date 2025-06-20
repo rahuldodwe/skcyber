@@ -1,59 +1,31 @@
 import React, { useState } from "react";
-import "./navbar.css";
+import { Link, useLocation } from "react-router-dom";
 import header_logo from "../../assets/logo.png";
-import { Link } from "react-router-dom";
+import "./navbar.css";
 
 const Navbar = () => {
-  const [homePage, setHomePage] = useState(true);
-  const [aboutPage, setAboutPage] = useState(false);
-  const [jobPage, setJobPage] = useState(false);
-  const [collegePage, setCollegePage] = useState(false);
-  const [servicePage, setServicePage] = useState(false);
+  const location = useLocation();
+  const [menuOpen, setMenuOpen] = useState(false);
 
-  function onHomeActive() {
-    setHomePage(true);
-    setJobPage(false);
-    setCollegePage(false);
-    setServicePage(false);
-    setAboutPage(false);
-  }
+  const navLinks = [
+    { name: "Home", path: "/" },
+    { name: "Govt-Jobs", path: "/govt-jobs" },
+    { name: "College Notification", path: "/college-notification" },
+    { name: "Our Services", path: "/our-services" },
+    { name: "About Us", path: "/about-us" },
+  ];
 
-  function onGovtActive() {
-    setJobPage(true);
-    setAboutPage(false);
-    setHomePage(false);
-    setCollegePage(false);
-    setServicePage(false);
-  }
-
-  function onServiceActive() {
-    setServicePage(true);
-    setAboutPage(false);
-    setHomePage(false);
-    setJobPage(false);
-    setCollegePage(false);
-  }
-
-  function onCollegeActive() {
-    setCollegePage(true);
-    setHomePage(false);
-    setJobPage(false);
-    setCollegePage(false);
-    setServicePage(false);
-  }
-
-  function onAboutActive() {
-    setAboutPage(true);
-    setHomePage(false);
-    setJobPage(false);
-    setCollegePage(false);
-    setServicePage(false);
-  }
+  const toggleMenu = () => setMenuOpen(!menuOpen);
 
   return (
     <div className="main-bar sticky-top">
       <nav>
-        <input type="checkbox" id="check" />
+        <input
+          type="checkbox"
+          id="check"
+          checked={menuOpen}
+          onChange={toggleMenu}
+        />
         <label htmlFor="check" className="checkbtn">
           <span></span>
           <span></span>
@@ -61,43 +33,21 @@ const Navbar = () => {
         </label>
 
         <div className="logo-header">
-          <Link to="/">
-            <img src={header_logo} />
+          <Link to="/" onClick={() => setMenuOpen(false)}>
+            <img src={header_logo} alt="Logo" />
           </Link>
         </div>
 
-        <ul>
-          {/* <li className="active"><Link to="/">Home</Link></li> */}
-          <li
-            className={`${homePage ? "active" : ""}`}
-            onClick={() => onHomeActive()}
-          >
-            <Link to="/">Home</Link>
-          </li>
-          <li
-            className={`${jobPage ? "active" : ""}`}
-            onClick={() => onGovtActive()}
-          >
-            <Link to="/govt-jobs">Govt-Jobs</Link>
-          </li>
-          <li
-            className={`${collegePage ? "active" : ""}`}
-            onClick={() => onCollegeActive()}
-          >
-            <Link to="/college-notification">College Notification</Link>
-          </li>
-          <li
-            className={`${servicePage ? "active" : ""}`}
-            onClick={() => onServiceActive()}
-          >
-            <Link to="/our-services">Our Services</Link>
-          </li>
-          <li
-            className={`${aboutPage ? "active" : ""}`}
-            onClick={() => onAboutActive()}
-          >
-            <Link to="/about-us">About Us</Link>
-          </li>
+        <ul className={menuOpen ? "nav-open" : ""}>
+          {navLinks.map((link) => (
+            <li
+              key={link.name}
+              className={location.pathname === link.path ? "active" : ""}
+              onClick={() => setMenuOpen(false)}
+            >
+              <Link to={link.path}>{link.name}</Link>
+            </li>
+          ))}
         </ul>
       </nav>
     </div>
