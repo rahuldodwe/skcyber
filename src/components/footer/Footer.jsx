@@ -7,7 +7,7 @@ const Footer = () => {
     <>
       <footer className="f-container">
         <div className="text-center p-3 text-white">
-          © 2024 Copyright: 
+          © 2025 Copyright: 
           <Link to='/' className="text-white" href="">
             skcyber.com
           </Link>

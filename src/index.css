@@ -33,15 +33,15 @@ img{
 	height:100%;
 	color: white;
 	font-weight:bold;
-	animation: myanimation 1s infinite;
+	animation: myanimation 3s infinite;
   }
   
   @keyframes myanimation {
 	0% {background-color: red;}
 	25%{background-color: darkblue;}
-	50%{background-color: darkred;}
+	50%{background-color: darkgoldenrod;}
 	75%{background-color: green;}
-	100% {background-color: darkgoldenrod;}
+	100% {background-color: #22272b;}
   }
 .color-line a:link{
 	color: white;
@@ -52,10 +52,9 @@ img{
 /* -----------FOR SUBMIT BUTTONS---------- */
 .button-reg{
 	font-family: cursive;
-	background-color: orange;
-	border: black;
+	background-color: #22272b;
 	border-radius: 8px;
-	color: black;
+	color: #fff;
 	padding: 6px 12px;
 	text-align: center;
 	text-decoration: none;
@@ -67,8 +66,11 @@ img{
   }
 
   .button-reg:hover {
-	background-color: rgb(131, 39, 25);
-	color: white;
+	color: #000;
+	background-color: lightblue;
+	border-color: #000;
+	border-width: 2px;
+	font-weight: bold;
 }
 .mob{
 	display: none;

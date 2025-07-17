@@ -27,7 +27,7 @@
 }
 
 .cp-img-cont {
-    width: 60%;
+    width: 100%;
     margin-left: auto;
     margin-right: auto;
 	margin-bottom: 0px;
@@ -172,6 +172,29 @@
 /*--------------Bsic-COMPUTER-CSS-end------------*/
 
 
+/*--------------Form Modal-CSS-end------------*/
+
+.form-modal {
+  width: 27%;
+  position: fixed;          /* Sticks to viewport */
+  top: 50%;                  /* Vertical center */
+  left: 50%;                 /* Horizontal center */
+  transform: translate(-50%, -50%); /* Perfect center */
+  z-index: 9999;             /* On top of everything */
+  padding: 5px;             /* Some padding */
+  border-radius: 10px;       /* Rounded corners */
+  box-shadow: 0 5px 20px rgba(0,0,0,0.3); /* Soft shadow */
+}
+
+/* Optional backdrop for overlay effect */
+.form-modal::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: -1; /* Keep it behind the form */
+}
+
+
 
 
 
@@ -186,16 +209,25 @@ table{
 	border: 2px solid white;
 }
 
+.table-dt > a {
+	color: #fff;
+}
+
+.table-dt > a:hover {
+	color: #000;
+}
+
 td{
+	padding: 0px 10px;
 	font-style: italic;
 	font-size: 18px;
 	height: 100px;
 	width: 25%;
 	font-family: initial;
-	border: 6px solid black;
-	background-color: rgb(255, 141, 0);
+	background-color: #22272b;
+	
 }
-td:hover{
+td:hover {
 	background-color: lightblue;
 }
 
@@ -218,7 +250,9 @@ td:hover{
 	font-size: 17px;
 	font-weight: bold;
 	text-align: center;
-	background-color: rgb(255, 141, 0);
+	color: #fff;
+	/* background-color: rgb(255, 141, 0); */
+	background-color: #22272b;
 	padding-top: 2px;
 }
 
@@ -228,7 +262,7 @@ td:hover{
 	width: 100%;
 	padding-top: 10px;
 	padding-bottom: 20px;
-	border-bottom: rgb(255, 141, 0) 3px solid;
+	border-bottom: #22272b 3px solid;
 }
 
 .jobs {
@@ -244,7 +278,7 @@ td:hover{
 }
 
 .jobs:hover {
-	border-bottom: 3px solid rgb(255, 141, 0);
+	border-bottom: 3px solid #22272b;
 	
 }
 

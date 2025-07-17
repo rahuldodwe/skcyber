@@ -13,15 +13,14 @@ import AdmissionForm from "../../components/admission-form/AdmissionForm";
 
 const Home = () => {
   const { resultList, latestJobList, admitCardList } = useContext(DataContext);
-  const [openForm, setOpenForm] = useState(false);
+  const [selectedForm, setSelectedForm] = useState(null);
 
-  function handleOpenForm() {
-    setOpenForm(!openForm);
-    
+  function handleOpenForm(form) {
+    setSelectedForm(form);
   }
 
   function onClose() {
-    setOpenForm(false);
+    setSelectedForm(null);
   }
 
   // Slice 20 Items
@@ -33,6 +32,29 @@ const Home = () => {
 
   const jobSlice = latestJobList.slice(0, 15);
   // console.log(jobSlice);
+
+  const cpctForm = {
+    title: "CPCT",
+    fields: [
+      "First Name",
+      "Last Name",
+      "Father Name",
+      "Mobile Number",
+      "Parmanent Address",
+    ],
+  };
+
+  const basicCompForm = {
+    title: "Basic Computer",
+    fields: [
+      "First Name",
+      "Last Name",
+      "Father Name",
+      "Mobile Number",
+      "Parmanent Address",
+    ],
+  };
+
   return (
     <>
       <div className="slider-bg">
@@ -44,13 +66,14 @@ const Home = () => {
       {/* ----------CPCT SECTION START--------------- */}
       <div className="container-fluid">
         <div className="row cl-blue">
-          <div className="col-md-5">
+          <div className="col-md-2"></div>
+          <div className="col-md-3">
             <div className="cp-img-cont">
               <img className="cpimg" src={cpct_img1} alt="" />
             </div>
           </div>
 
-          <div className="col-md-7">
+          <div className="col-md-6">
             <div className="cpct">
               <h2 className="cpct-h">● CPCT</h2>
               <p className="cpct-p">
@@ -63,18 +86,20 @@ const Home = () => {
               </p>
             </div>
             <center>
-              <button className="button-reg" onClick={handleOpenForm}>
-              <a>Get Admission</a>
+              {/* CPCT Admission Button */}
+              <button
+                className="button-reg"
+                onClick={() => handleOpenForm(cpctForm)}
+              >
+                <a>Get Admission (CPCT)</a>
               </button>
-              
             </center>
           </div>
+          <div className="col-md-1"></div>
           <hr />
         </div>
       </div>
       {/* ----------CPCT SECTION END--------------- */}
-
-      {openForm && <AdmissionForm onClose={onClose} />}
 
       {/* ----------Basic Computer SECTION END--------------- */}
       <div className="container-fluid">
@@ -91,8 +116,11 @@ const Home = () => {
               </p>
             </div>
             <center>
-              <button className="button-reg desk">
-                <a>Get Admission</a>
+              <button
+                className="button-reg"
+                onClick={() => handleOpenForm(basicCompForm)}
+              >
+                <a>Get Admission (Basic Computer)</a>
               </button>
             </center>
           </div>
@@ -110,6 +138,13 @@ const Home = () => {
         </div>
       </div>
       {/* ----------Basic Computer SECTION END--------------- */}
+
+      {/* AdmissionForm */}
+      {selectedForm && (
+        <div className="form-modal">
+          <AdmissionForm formType={selectedForm} onClose={onClose} />
+        </div>
+      )}
 
       {/* <!----------------GOVT-JOB-START-----------------> */}
       <div>

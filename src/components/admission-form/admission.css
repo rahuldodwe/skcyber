@@ -1,22 +1,22 @@
 
 .formContainer {
-    position: absolute;
-    margin-top: -350px;
+    /* position: absolute;
+    justify-content: center;
+    margin-top: -348px;
+    margin-left: 50px;
     padding: 0px 30px;
-    overflow: hidden;
-    width: 60%;
-    height: 70%;
-    background-color: #c89300;
-    transform: translate(35%);
+    overflow: hidden; */
+    padding: 20px 10px;
+    background-color: #22272b;
     border-radius: 10px;
-    box-shadow: 0px 0px 10px 1px black;;
+    box-shadow: 0px 0px 10px 1px #c89300;;
     
 }
 
 .modal-content {
     animation-name: animateModal;
     animation-duration: 0.5s;
-     background-color: #c89300;
+     background-color: #22272b;
 }
 
 .close-modal-icon {
@@ -28,13 +28,44 @@
 
 .header{
     display: inline;
-    background-color: #c89300;
+    background-color: #22272b;
+    color: white;
+}
+
+.header h1 {
+    padding-top: 7px;
+    font-weight: bold;
+    font-size: x-large;
+    color: white;
 }
 
 
 .formContent{
     padding-top: 5px;
 }
+
+.formRow{
+    display: block;
+    margin-top: 15px;
+}
+
+ .inputField {
+    width: 100%;
+    padding: 2px 7px;
+    font-size: 14px;
+    border-radius: 7px;
+    color: black;
+    background-color: #ffffffe5;
+}
+
+.submitBtn {
+        font-weight: bold;
+        background-color: #c89300;
+        color: white;
+        padding: 2px 10px;
+        border-radius: 5px;
+    }
+
 
 
 @keyframes animateModal {
@@ -48,4 +79,26 @@
         opacity: 1;
     }
     
+}
+
+@media only screen and (max-width: 768px) {
+    .formContainer {
+        position: absolute;
+        margin-top: -350px;
+        padding: 0px 30px;
+        overflow: hidden;
+        width: 91%;
+        height: 70%;
+        background-color: #22272b;
+        transform: translate(5%);
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px 1px #c89300;
+        
+    }
+    .header h1 {
+        padding-top: 8px;
+        font-weight: bold;
+        font-size: x-large;
+    }
+
 }
