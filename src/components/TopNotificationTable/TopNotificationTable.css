@@ -1,0 +1,51 @@
+/* TopNotificationTable Component Styles */
+
+.top-notification-table {
+  margin-top: 6px;
+  width: 100%;
+  text-align: center;
+}
+
+.top-notification-table table {
+  margin-top: 6px;
+  width: 100%;
+  text-align: center;
+}
+
+.top-notification-table .table-dt {
+  border: 2px solid white !important;
+}
+
+.top-notification-table .table-dt > a {
+  color: #fff !important;
+}
+
+.top-notification-table .table-dt > a:hover {
+  color: #000 !important;
+}
+
+.top-notification-table td {
+  padding: 0px 10px !important;
+  font-style: italic !important;
+  font-size: 18px !important;
+  height: 100px !important;
+  width: 25% !important;
+  font-family: initial !important;
+  background-color: #22272b !important;
+}
+
+.top-notification-table td:hover {
+  background-color: lightblue !important;
+}
+
+@media(max-width: 800px){
+  .top-notification-table td {
+    height: 50px !important;
+    font-size: 12px !important;
+    border: 3px white solid !important;
+  }
+  
+  .top-notification-table table {
+    margin-top: 14px !important;
+  }
+}

@@ -10,9 +10,22 @@ import ticket_img from "../../assets/ticket1.png";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { DataContext } from "../../context/Context";
 import AdmissionForm from "../../components/admission-form/AdmissionForm";
+import Heading from "../../components/heading/Heading";
+import NotificationTable from "../../components/NotificationTable/NotificationTable";
+import TopNotificationTable from "../../components/TopNotificationTable/TopNotificationTable";
 
 const Home = () => {
-  const { resultList, latestJobList, admitCardList } = useContext(DataContext);
+  const { 
+    resultList, 
+    latestJobList, 
+    admitCardList,
+    collegeResultList,
+    collegeAdmitCardList,
+    collegeExamFormList,
+    govtJobResultList,
+    govtJobAdmitCardList,
+    govtJobLatestNotificationList
+  } = useContext(DataContext);
   const [selectedForm, setSelectedForm] = useState(null);
 
   function handleOpenForm(form) {
@@ -25,13 +38,19 @@ const Home = () => {
 
   // Slice 20 Items
   const admitCardSlice = admitCardList.slice(0, 15);
-  // console.log(admitCard50);
-
   const resultSlice = resultList.slice(0, 15);
-  // console.log(admitCard50);
-
   const jobSlice = latestJobList.slice(0, 15);
-  // console.log(jobSlice);
+
+  // College data slices
+  const collegeResultSlice = collegeResultList.slice(0, 15);
+  const collegeAdmitCardSlice = collegeAdmitCardList.slice(0, 15);
+  const collegeExamFormSlice = collegeExamFormList.slice(0, 15);
+
+  // Government job data slices (using dummy API data)
+  const govtJobResultSlice = govtJobResultList.slice(0, 15);
+  const govtJobAdmitCardSlice = govtJobAdmitCardList.slice(0, 15);
+  const govtJobLatestNotificationSlice = govtJobLatestNotificationList.slice(0, 15);
+  const govtJobTopNotificationSlice = govtJobLatestNotificationList.slice(0, 8); // For top table (2 rows of 4)
 
   const cpctForm = {
     title: "CPCT",
@@ -60,9 +79,8 @@ const Home = () => {
       <div className="slider-bg">
         <Slider />
       </div>
-      <center>
-        <h1 className="color-line">Welcome To SK-Cyber</h1>
-      </center>
+      <Heading text="Welcome To SK-Cyber" />
+      
       {/* ----------CPCT SECTION START--------------- */}
       <div className="container-fluid">
         <div className="row cl-blue">
@@ -101,7 +119,7 @@ const Home = () => {
       </div>
       {/* ----------CPCT SECTION END--------------- */}
 
-      {/* ----------Basic Computer SECTION END--------------- */}
+      {/* ----------Basic Computer SECTION START--------------- */}
       <div className="container-fluid">
         <div className="row basic-blue">
           <div className="col-md-7">
@@ -146,314 +164,54 @@ const Home = () => {
         </div>
       )}
 
+
+
       {/* <!----------------GOVT-JOB-START-----------------> */}
-      <div>
-        <center>
-          <h1 className="color-line">Government - Jobs</h1>
-        </center>
-      </div>
-      <div className="container">
-        <table>
-          <tr>
-            <td className="table-dt">
-              <a href="https://www.sarkariresult.com/upsc/upsc-otr-registration/">
-                UPSC OTR 2022 Registration
-              </a>
-            </td>
+      <Heading text="Job Notifications" />
 
-            <td className="table-dt">
-              <a href="https://www.sarkariresult.com/ssc/ssc-cpo-si-2022/">
-                SSC CPO SI 2022 Apply Online
-              </a>
-            </td>
+      <TopNotificationTable notificationList={govtJobLatestNotificationSlice} />
 
-            <td className="table-dt">
-              <a href="https://www.sarkariresult.com/2022/army-agniveer-rally/">
-                Army Agniveer Apply Online
-              </a>
-            </td>
-
-            <td className="table-dt">
-              <a href="https://www.sarkariresult.com/ssc/ssc-junior-engineer-je-2022/">
-                SSC Junior Engineer Apply Online
-              </a>
-            </td>
-          </tr>
-
-          <tr>
-            <td className="table-dt">
-              <a href="https://www.sarkariresult.com/force/coast-guard-ac-02-2023/">
-                Coast Guard AC Apply Online
-              </a>
-            </td>
-
-            <td className="table-dt">
-              <a href="https://www.sarkariresult.com/upsssc/upsssc-mukhya-sevika-05-22/">
-                Apply Online UPSSSC Mukhya Sevika Apply Online
-              </a>
-            </td>
-
-            <td className="table-dt">
-              <a href="https://www.sarkariresult.com/ssc/ssc-stenographer-2022/">
-                SSC Stenographer 2022 Apply Online
-              </a>
-            </td>
-
-            <td className="table-dt">
-              <a href="https://www.sarkariresult.com/2022/railway-group-d-admit-card/">
-                Railway Group D Exam City / Admit Card
-              </a>
-            </td>
-          </tr>
-        </table>
-      </div>
-      <div className="container">
-        <div className="row ">
-          <div className="col-md-4">
-            <h4 className="tbl-h">Result</h4>
-            <div className="b">
-              {resultSlice && resultSlice.length > 0 ? (
-                resultSlice.map((singleResult, index) => (
-                  <div key={index} className="jobs">
-                    <FaArrowRightLong className="arrow" />
-                    <a
-                      target="blank"
-                      href={singleResult?.href}
-                      className="job-text"
-                    >
-                      {singleResult?.text}
-                    </a>
-                  </div>
-                ))
-              ) : (
-                <h1 className="text-center pt-3">Data Loading...</h1>
-              )}
-            </div>
-          </div>
-
-          <div className="col-md-4 col-sep">
-            <h4 className="tbl-h">Admit Card</h4>
-            <div className="b">
-              {admitCardSlice && admitCardSlice.length > 0 ? (
-                admitCardSlice.map((singleCard, index) => (
-                  <div key={index} className="jobs">
-                    <FaArrowRightLong className="arrow" />
-                    <a
-                      target="blank"
-                      href={singleCard?.href}
-                      className="job-text"
-                    >
-                      {singleCard?.text}
-                    </a>
-                  </div>
-                ))
-              ) : (
-                <h1 className="text-center pt-3">Data Loading...</h1>
-              )}
-            </div>
-          </div>
-          <div className="col-md-4 col-sep">
-            <h4 className="tbl-h">Latest Jobs</h4>
-            <div className="b">
-              {jobSlice && jobSlice.length > 0 ? (
-                jobSlice.map((singleJob, index) => (
-                  <div key={index} className="jobs">
-                    <FaArrowRightLong className="arrow" />
-                    <a
-                      target="blank"
-                      href={singleJob?.href}
-                      className="job-text"
-                    >
-                      {singleJob?.text}
-                    </a>
-                  </div>
-                ))
-              ) : (
-                <h1 className="text-center pt-3">Data Loading...</h1>
-              )}
-            </div>
-          </div>
-        </div>
-        {/* <hr style="height: 2px; color: black; background-color: gray;"> */}
-        <center>
-          <form>
-            <button className="button-reg">See More..</button>
-          </form>
-        </center>
-      </div>
+      {/* Job NotificationTable */}
+      <NotificationTable 
+        table1={govtJobResultSlice}
+        table2={govtJobAdmitCardSlice}
+        table3={{
+          data: govtJobLatestNotificationSlice,
+          navigationUrl: "/jobs"
+        }}
+        pageUrl="/govt-jobs"
+        column1Title="Result"
+        column2Title="Admit Card"
+        column3Title="Latest Jobs"
+      />
       <br />
       {/* <!----------------GOVT-JOB-END-----------------> */}
 
+
+
       {/* <!----------------College-Notifications-START----------------> */}
       <div>
-        <div>
-          <center>
-            <h1 className="color-line">College Notifcations</h1>
-          </center>
-        </div>
-
-        <div className="container">
-          <div className="row ">
-            <div className="col-md-4">
-              <h4 className="tbl-h">Result</h4>
-              <div className="b">
-                <div className="jobs">
-                  <FaArrowRightLong className="arrow" />
-                  <a className="job-text">
-                    Delhi High Court Judicial Services Mains Result 2022
-                  </a>
-                </div>
-                <div className="jobs">
-                  <FaArrowRightLong className="arrow" />
-                  <a className="job-text">
-                    Delhi High Court Judicial Services Mains Result 2024
-                  </a>
-                </div>
-                <div className="jobs">
-                  <FaArrowRightLong className="arrow" />
-                  <a className="job-text">
-                    RPSC AE Civil, Revenue & Executive Officer Online Form 2024
-                  </a>
-                </div>
-                <div className="jobs">
-                  <FaArrowRightLong className="arrow" />
-                  <a className="job-text">
-                    Delhi High Court Judicial Services Mains Result 2024
-                  </a>
-                </div>
-                <div className="jobs">
-                  <FaArrowRightLong className="arrow" />
-                  <a className="job-text">
-                    Delhi High Court Judicial Services Mains Result 2024
-                  </a>
-                </div>
-                <div className="jobs">
-                  <FaArrowRightLong className="arrow" />
-                  <a className="job-text">
-                    Delhi High Court Judicial Services Mains Result 2024
-                  </a>
-                </div>
-                <div className="jobs">
-                  <FaArrowRightLong className="arrow" />
-                  <a className="job-text">
-                    Delhi High Court Judicial Services Mains Result 2024
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            <div className="col-md-4 col-sep">
-              <h4 className="tbl-h">Admit Card</h4>
-              <div className="b">
-                <div className="jobs">
-                  <FaArrowRightLong className="arrow" />
-                  <a className="job-text">
-                    Delhi High Court Judicial Services Mains Result 2022
-                  </a>
-                </div>
-                <div className="jobs">
-                  <FaArrowRightLong className="arrow" />
-                  <a className="job-text">
-                    Delhi High Court Judicial Services Mains Result 2024
-                  </a>
-                </div>
-                <div className="jobs">
-                  <FaArrowRightLong className="arrow" />
-                  <a className="job-text">
-                    RPSC AE Civil, Revenue & Executive Officer Online Form 2024
-                  </a>
-                </div>
-                <div className="jobs">
-                  <FaArrowRightLong className="arrow" />
-                  <a className="job-text">
-                    Delhi High Court Judicial Services Mains Result 2024
-                  </a>
-                </div>
-                <div className="jobs">
-                  <FaArrowRightLong className="arrow" />
-                  <a className="job-text">
-                    Delhi High Court Judicial Services Mains Result 2024
-                  </a>
-                </div>
-                <div className="jobs">
-                  <FaArrowRightLong className="arrow" />
-                  <a className="job-text">
-                    Delhi High Court Judicial Services Mains Result 2024
-                  </a>
-                </div>
-                <div className="jobs">
-                  <FaArrowRightLong className="arrow" />
-                  <a className="job-text">
-                    Delhi High Court Judicial Services Mains Result 2024
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div className="col-md-4 col-sep">
-              <h4 className="tbl-h">Latest Jobs</h4>
-              <div className="b">
-                <div className="jobs">
-                  <FaArrowRightLong className="arrow" />
-                  <a className="job-text">
-                    Delhi High Court Judicial Services Mains Result 2022
-                  </a>
-                </div>
-                <div className="jobs">
-                  <FaArrowRightLong className="arrow" />
-                  <a className="job-text">
-                    Delhi High Court Judicial Services Mains Result 2024
-                  </a>
-                </div>
-                <div className="jobs">
-                  <FaArrowRightLong className="arrow" />
-                  <a className="job-text">
-                    RPSC AE Civil, Revenue & Executive Officer Online Form 2024
-                  </a>
-                </div>
-                <div className="jobs">
-                  <FaArrowRightLong className="arrow" />
-                  <a className="job-text">
-                    Delhi High Court Judicial Services Mains Result 2024
-                  </a>
-                </div>
-                <div className="jobs">
-                  <FaArrowRightLong className="arrow" />
-                  <a className="job-text">
-                    Delhi High Court Judicial Services Mains Result 2024
-                  </a>
-                </div>
-                <div className="jobs">
-                  <FaArrowRightLong className="arrow" />
-                  <a className="job-text">
-                    Delhi High Court Judicial Services Mains Result 2024
-                  </a>
-                </div>
-                <div className="jobs">
-                  <FaArrowRightLong className="arrow" />
-                  <a className="job-text">
-                    Delhi High Court Judicial Services Mains Result 2024
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-          {/* <hr style="height: 2px; color: black; background-color: gray;"> */}
-          <center>
-            <form>
-              <button className="button-reg">See More..</button>
-            </form>
-          </center>
-        </div>
+        <Heading text="College Notifcations" />
+        <TopNotificationTable notificationList={collegeExamFormSlice} />
+        {/* College NotificationTable */}
+        <NotificationTable 
+          table1={collegeResultSlice} 
+          table2={collegeAdmitCardSlice} 
+          table3={{
+            data: collegeExamFormSlice,
+            navigationUrl: "/college-detail"
+          }}
+          pageUrl="/college-notification"
+          column1Title="Result"
+          column2Title="Admit Card"
+          column3Title="Admission / Exam Forms"
+        />
       </div>
       {/* <!----------------College-Notifications-END----------------> */}
 
       {/* <!----------------Our Services-START----------------> */}
       <div>
-        <div>
-          <center>
-            <h1 className="color-line">Our Services</h1>
-          </center>
-        </div>
+        <Heading text="Our Services" />
         <div className="container-fluid bg-bl">
           <div className="row">
             {/* <!------row start-------> */}
@@ -497,7 +255,7 @@ const Home = () => {
           </form>
         </center>
       </div>
-      {/* <!----------------OOur Services-START----------------> */}
+      {/* <!----------------Our Services-END----------------> */}
     </>
   );
 };

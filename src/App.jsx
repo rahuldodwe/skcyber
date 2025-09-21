@@ -8,6 +8,7 @@ import AboutUS from "./pages/about-us/AboutUS";
 import CollegeNotification from "./pages/college-notification/CollegeNotification";
 import GovtJobs from "./pages/govt-jobs/GovtJobs";
 import OurServices from "./pages/our-services/OurServices";
+import JobDetail from "./pages/job-detail/JobDetail";
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,18 @@ const router = createBrowserRouter([
       {
         path: "/our-services",
         element: <OurServices />,
+      },
+      {
+        path: "/job",
+        element: <JobDetail />,
+      },
+      {
+        path: "/jobs",
+        element: <JobDetail />,
+      },
+      {
+        path: "/college-detail",
+        element: <JobDetail />,
       },
     ],
   },
